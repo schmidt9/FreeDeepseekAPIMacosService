@@ -5,7 +5,8 @@ export NVM_DIR="$HOME/.nvm"
 # shellcheck disable=SC1091
 . "$NVM_DIR/nvm.sh"
 
-cd /Users/user/Desktop/FreeDeepseekAPI
+API_PATH="/Users/user/Desktop/FreeDeepseekAPI" # <<< customize
+cd "$API_PATH"
 
 # Use the project's .nvmrc if present, otherwise fall back to `default`.
 # Add --silent so nvm doesn't print to stderr every boot.
