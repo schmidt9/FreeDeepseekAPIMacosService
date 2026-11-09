@@ -5,7 +5,10 @@ export NVM_DIR="$HOME/.nvm"
 # shellcheck disable=SC1091
 . "$NVM_DIR/nvm.sh"
 
-API_PATH="/Users/user/Desktop/FreeDeepseekAPI" # <<< customize
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+# import to get API_PATH
+source "$SCRIPT_DIR/env.sh"
+
 cd "$API_PATH"
 
 # Use the project's .nvmrc if present, otherwise fall back to `default`.

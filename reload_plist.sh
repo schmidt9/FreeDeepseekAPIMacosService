@@ -20,7 +20,19 @@ echo "Fixing permissions & ownership"
 chown $(whoami) "$PLIST_PATH"
 chmod 644 "$PLIST_PATH"
 
-chmod +x npm_start.sh
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+NPM_START_SCRIPT_PATH="$SCRIPT_DIR/npm_start.sh"
+
+echo "npm start script path: $NPM_START_SCRIPT_PATH"
+chmod +x "$NPM_START_SCRIPT_PATH"
+
+# import to get API_PATH
+source "$SCRIPT_DIR/env.sh"
+
+# fix error when running `npm run doctor` - "permissions too open: 644" after export from extension 
+# https://github.com/ForgetMeAI/FreeDeepseekAPI/tree/main/chrome-extension
+echo "FreeDeepseekAPI path: $API_PATH"
+find "$API_PATH" -type f -name "deepseek-auth*.json" -exec chmod 600 {} +
 
 echo "Launching"
 # Загружаем заново
