@@ -19,3 +19,9 @@ In FreeDeepseekAPI directory:
 4. On new authentication `data/accounts/deepseek-auth.json` should be created 
 5. **Copy/rename the file** (because it will be overwritten on repeated auth), repeat steps 3-5 again to add more accounts
 6. Verify setup by running `npm run`, line like `[DS-API] Loaded 2 auth account(s): account_1, account_2` should appear
+
+## Troubleshooting when creating accounts
+
+- confirmation codes do not arrive sometimes from DeepSeek to Yandex email, use Google accounts (for instance)
+- when creating Google accounts from PC Google requires confirmation via QR-code using phone camera and registration fails if camera does not support this feature. Add new accounts directly from Android Settings in this case
+
